@@ -28,10 +28,10 @@ function Navbar() {
           
           {/* Navigation */}
           <nav className="flex items-center space-x-8">
-            <Link href="/" className="text-[#00E0FF] hover:text-white transition">
+            <Link href="/" className="text-[#CD1818] hover:text-white transition">
               Home
             </Link>
-            <Link href="/about" className="text-white hover:text-[#00E0FF] transition">
+            <Link href="/about" className="text-white hover:text-[#CD1818] transition">
               About
             </Link>
             
@@ -122,27 +122,37 @@ function SearchBar() {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#151515]">
       {/* Add Navbar */}
       <Navbar />
       
-      {/* Hero Section - add padding top to account for navbar */}
-      <section className="relative h-screen flex items-center justify-center">
+      {/* Hero Section */}
+      <section className="min-h-screen flex items-center justify-center bg-[#151515] py-24 px-4 sm:px-6 lg:px-8">
         {/* Banner image as background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 top-0 h-screen">
           <Image 
             src="/welcome/banner.jpg" 
             alt="Welcome Banner" 
             fill 
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/75 to-black/90" />
+          <div className="absolute inset-0 bg-[#151515]/75" />
         </div>
-        <div className="relative z-10 px-4 sm:px-6 lg:px-8 mt-20 md:mt-40">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-4xl md:text-5xl font-medium text-white mb-3">Welcome to</p>
+        <div className="relative z-10 max-w-7xl mx-auto w-full pt-16">
+          <div className="text-center">
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
+            
             <h1 className="text-7xl sm:text-8xl md:text-8xl font-black text-white mb-8 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-none">
               SPUDIN&apos;S GAME LIST
             </h1>
@@ -158,8 +168,11 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-900 via-indigo-900 to-black">
-        <div className="max-w-7xl mx-auto">
+      <section className="min-h-screen flex items-center bg-[#151515] py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto w-full">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
+            Features
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* List of games feature */}
             <div className="bg-black/30 backdrop-blur-sm rounded-3xl overflow-hidden shadow-lg">
@@ -222,8 +235,8 @@ export default function Home() {
       </section>
 
       {/* Community Links Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="min-h-screen flex items-center bg-[#151515] py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center w-full">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Join Our Community</h2>
           <p className="text-xl mb-10 text-gray-300">
             Connect with us and other gamers across these platforms
@@ -241,9 +254,8 @@ export default function Home() {
                   <path d="M11.64 5.93h1.43v4.28h-1.43m3.93-4.28H17v4.28h-1.43M7 2L3.43 5.57v12.86h4.28V22l3.58-3.57h2.85L20.57 12V2m-1.43 9.29l-2.85 2.85h-2.86l-2.5 2.5v-2.5H7.71V3.43h11.43z" />
                 </svg>
               </div>
-              <span className="font-medium">Twitch</span>
             </a>
-            
+              
             <a 
               href="https://discord.gg" 
               target="_blank" 
@@ -255,29 +267,14 @@ export default function Home() {
                   <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.39-.444.888-.608 1.283a19.42 19.42 0 0 0-5.83 0C8.75 3.926 8.514 3.43 8.3 3.038a.077.077 0 0 0-.079-.036 20.318 20.318 0 0 0-4.885 1.49A.07.07 0 0 0 3.3 4.546C.572 8.756-.032 12.858.001 16.892c.001.055.026.106.07.138 1.986 1.457 3.913 2.343 5.805 2.928a.08.08 0 0 0 .086-.028c.462-.63.874-1.295 1.226-1.994a.075.075 0 0 0-.041-.105c-.632-.242-1.235-.519-1.807-.811a.08.08 0 0 1-.008-.13c.122-.091.244-.187.36-.281a.07.07 0 0 1 .073-.01c3.69 1.683 7.68 1.683 11.339 0a.07.07 0 0 1 .072.01 8.3 8.3 0 0 1 .36.28.08.08 0 0 1-.007.131c-.573.292-1.175.57-1.807.811a.075.075 0 0 0-.041.105c.36.698.772 1.363 1.225 1.994a.077.077 0 0 0 .087.028c1.899-.585 3.826-1.471 5.812-2.928a.077.077 0 0 0 .069-.138c.105-4.434-.699-8.5-2.957-12.345a.061.061 0 0 0-.036-.034zM8.02 14.184c-1.144 0-2.085-1.054-2.085-2.35 0-1.296.92-2.35 2.085-2.35 1.17 0 2.105 1.065 2.085 2.35 0 1.296-.92 2.35-2.085 2.35zm7.705 0c-1.144 0-2.085-1.054-2.085-2.35 0-1.296.92-2.35 2.085-2.35 1.17 0 2.105 1.065 2.085 2.35 0 1.296-.914 2.35-2.085 2.35z" />
                 </svg>
               </div>
-              <span className="font-medium">Discord</span>
-            </a>
-            
-            <a 
-              href="https://github.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex flex-col items-center transition-transform hover:scale-110"
-            >
-              <div className="w-16 h-16 flex items-center justify-center bg-[#24292e] rounded-full mb-3">
-                <svg viewBox="0 0 24 24" className="w-8 h-8 fill-white">
-                  <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
-                </svg>
-              </div>
-              <span className="font-medium">GitHub</span>
             </a>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-red-700">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="min-h-screen flex items-center bg-[#151515] py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center w-full">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Join the Community?
           </h2>
@@ -292,6 +289,118 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-black/80 text-white py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Logo and Description */}
+            <div className="col-span-1 md:col-span-2">
+              <Link href="/" className="flex items-center mb-4">
+                <Image 
+                  src="/navbar/logo.png" 
+                  alt="MYGAMELIST" 
+                  width={120} 
+                  height={35} 
+                  className="h-auto"
+                  style={{ objectFit: 'contain' }}
+                  unoptimized
+                />
+              </Link>
+              <p className="text-sm text-gray-400 max-w-md">
+                Track your game collection, rate games you've played, and share your experiences with the gaming community.
+              </p>
+            </div>
+            
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-white transition text-sm">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className="text-gray-400 hover:text-white transition text-sm">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/games" className="text-gray-400 hover:text-white transition text-sm">
+                    Browse Games
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/signup" className="text-gray-400 hover:text-white transition text-sm">
+                    Sign Up
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            {/* Social Media */}
+            <div>
+              <h3 className="text-lg font-bold mb-4">Connect</h3>
+              <div className="flex space-x-4 mb-4">
+                <a 
+                  href="https://github.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition"
+                >
+                  <div className="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                      <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                    </svg>
+                  </div>
+                </a>
+                <a 
+                  href="https://twitch.tv" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition"
+                >
+                  <div className="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                      <path d="M11.64 5.93h1.43v4.28h-1.43m3.93-4.28H17v4.28h-1.43M7 2L3.43 5.57v12.86h4.28V22l3.58-3.57h2.85L20.57 12V2m-1.43 9.29l-2.85 2.85h-2.86l-2.5 2.5v-2.5H7.71V3.43h11.43z" />
+                    </svg>
+                  </div>
+                </a>
+                <a 
+                  href="https://discord.gg" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition"
+                >
+                  <div className="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                      <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.39-.444.888-.608 1.283a19.42 19.42 0 0 0-5.83 0C8.75 3.926 8.514 3.43 8.3 3.038a.077.077 0 0 0-.079-.036 20.318 20.318 0 0 0-4.885 1.49A.07.07 0 0 0 3.3 4.546C.572 8.756-.032 12.858.001 16.892c.001.055.026.106.07.138 1.986 1.457 3.913 2.343 5.805 2.928a.08.08 0 0 0 .086-.028c.462-.63.874-1.295 1.226-1.994a.075.075 0 0 0-.041-.105c-.632-.242-1.235-.519-1.807-.811a.08.08 0 0 1-.008-.13c.122-.091.244-.187.36-.281a.07.07 0 0 1 .073-.01c3.69 1.683 7.68 1.683 11.339 0a.07.07 0 0 1 .072.01 8.3 8.3 0 0 1 .36.28.08.08 0 0 1-.007.131c-.573.292-1.175.57-1.807.811a.075.075 0 0 0-.041.105c.36.698.772 1.363 1.225 1.994a.077.077 0 0 0 .087.028c1.899-.585 3.826-1.471 5.812-2.928a.077.077 0 0 0 .069-.138c.105-4.434-.699-8.5-2.957-12.345a.061.061 0 0 0-.036-.034zM8.02 14.184c-1.144 0-2.085-1.054-2.085-2.35 0-1.296.92-2.35 2.085-2.35 1.17 0 2.105 1.065 2.085 2.35 0 1.296-.92 2.35-2.085 2.35zm7.705 0c-1.144 0-2.085-1.054-2.085-2.35 0-1.296.92-2.35 2.085-2.35 1.17 0 2.105 1.065 2.085 2.35 0 1.296-.914 2.35-2.085 2.35z" />
+                    </svg>
+                  </div>
+                </a>
+              </div>
+              <p className="text-sm text-gray-400">
+                Email: <a href="mailto:contact@spudin.com" className="hover:text-white transition">contact@spudin.com</a>
+              </p>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-gray-500">
+              &copy; {new Date().getFullYear()} Spudin's Game List. All rights reserved.
+            </p>
+            <div className="mt-4 md:mt-0 flex space-x-6">
+              <Link href="/terms" className="text-xs text-gray-500 hover:text-white transition">
+                Terms of Service
+              </Link>
+              <Link href="/privacy" className="text-xs text-gray-500 hover:text-white transition">
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
