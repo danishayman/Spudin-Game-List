@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,6 +15,7 @@ export default function Home() {
             alt="Welcome Banner" 
             fill 
             priority
+            sizes="100vw"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/75 to-black/90" />
@@ -28,12 +31,26 @@ export default function Home() {
           <div className="mt-10">
             <div className="relative max-w-xl mx-auto">
               <div className="absolute inset-y-0 left-3 flex items-center pl-3 pointer-events-none">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-gray-400">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="20" 
+                  height="20"
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  className="text-gray-400"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
               </div>
               <input 
                 type="search" 
+                id="gameSearch"
+                aria-label="Search for a game"
                 className="block w-full p-4 pl-12 text-base text-gray-900 border border-gray-300 rounded-full bg-white focus:ring-red-600 focus:border-red-600"
                 placeholder="Find a game" 
               />
@@ -79,24 +96,28 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* These would ideally come from your database */}
             <GameCard 
+              key="elden-ring-2"
               title="Elden Ring 2"
               imageUrl="/placeholder-game.jpg"
               releaseDate="Coming 2025"
               rating={4.9}
             />
             <GameCard 
+              key="star-wars-outlaws"
               title="Star Wars: Outlaws"
               imageUrl="/placeholder-game.jpg"
               releaseDate="August 2024"
               rating={4.5}
             />
             <GameCard 
+              key="dragon-age"
               title="Dragon Age: The Veilguard"
               imageUrl="/placeholder-game.jpg"
               releaseDate="Fall 2024"
               rating={4.7}
             />
             <GameCard 
+              key="metaphor"
               title="Metaphor: ReFantazio"
               imageUrl="/placeholder-game.jpg"
               releaseDate="October 2024"
