@@ -244,7 +244,7 @@ export default function Home() {
           
           <div className="flex flex-wrap justify-center gap-8">
             <a 
-              href="https://twitch.tv" 
+              href="https://twitch.tv/bexed" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex flex-col items-center transition-transform hover:scale-110"
@@ -257,7 +257,7 @@ export default function Home() {
             </a>
               
             <a 
-              href="https://discord.gg" 
+              href="https://discord.gg/bexed" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex flex-col items-center transition-transform hover:scale-110"
@@ -344,7 +344,7 @@ export default function Home() {
               <h3 className="text-lg font-bold mb-4">Connect</h3>
               <div className="flex space-x-4 mb-4">
                 <a 
-                  href="https://github.com" 
+                  href="https://github.com/danishayman" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition"
@@ -356,7 +356,7 @@ export default function Home() {
                   </div>
                 </a>
                 <a 
-                  href="https://twitch.tv" 
+                  href="https://twitch.tv/bexed" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition"
@@ -368,7 +368,7 @@ export default function Home() {
                   </div>
                 </a>
                 <a 
-                  href="https://discord.gg" 
+                  href="https://discord.gg/bexed" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition"
