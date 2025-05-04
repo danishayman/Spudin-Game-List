@@ -2,12 +2,56 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+
+// Create a separate client component for the search bar
+function SearchBar() {
+  const [mounted, setMounted] = useState(false);
+
+  // Only show on client-side to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="h-14 w-full max-w-4xl mx-auto bg-white/20 rounded-full" />;
+  }
+
+  return (
+    <div className="relative max-w-4xl mx-auto">
+      <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none z-10">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="24" 
+          height="24"
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          className="text-gray-400"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </div>
+      <input 
+        type="search" 
+        id="gameSearch"
+        aria-label="Search for a game"
+        className="block w-full py-4 px-4 pl-14 text-base text-center text-gray-800 border-0 rounded-full bg-white/95 backdrop-blur-sm focus:ring-transparent focus:border-transparent shadow-md"
+        placeholder="Find a game" 
+      />
+    </div>
+  );
+}
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center">
+      <section className="relative h-screen flex items-center justify-center">
         {/* Banner image as background */}
         <div className="absolute inset-0">
           <Image 
@@ -20,41 +64,19 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/75 to-black/90" />
         </div>
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-          <p className="text-2xl md:text-3xl font-medium text-white mb-2">Welcome to</p>
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            SPUDIN'S GAME LIST
-          </h1>
-          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto mb-8 drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
-            Get your game collection and personal rating in one place and share it with all world
-          </p>
-          <div className="mt-10">
-            <div className="relative max-w-xl mx-auto">
-              <div className="absolute inset-y-0 left-3 flex items-center pl-3 pointer-events-none">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="20" 
-                  height="20"
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  className="text-gray-400"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-              </div>
-              <input 
-                type="search" 
-                id="gameSearch"
-                aria-label="Search for a game"
-                className="block w-full p-4 pl-12 text-base text-gray-900 border border-gray-300 rounded-full bg-white focus:ring-red-600 focus:border-red-600"
-                placeholder="Find a game" 
-              />
-            </div>
+        <div className="relative z-10 px-4 sm:px-6 lg:px-8 mt-20 md:mt-40">
+          <div className="max-w-7xl mx-auto">
+            <p className="text-4xl md:text-5xl font-medium text-white mb-3">Welcome to</p>
+            <h1 className="text-7xl sm:text-8xl md:text-8xl font-black text-white mb-8 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-none">
+              SPUDIN&apos;S GAME LIST
+            </h1>
+            <p className="text-xl md:text-2xl text-center text-white mb-20 drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
+              Get your game collection and personal rating in one place and share it with the communities!
+            </p>
+          </div>
+          
+          <div className="mt-12">
+            <SearchBar />
           </div>
         </div>
       </section>
