@@ -4,6 +4,79 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+// Navbar component
+function Navbar() {
+  return (
+    <header className="fixed w-full z-50 bg-black/50 backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-3">
+          {/* Logo */}
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/navbar/logo.png" 
+                alt="MYGAMELIST" 
+                width={180} 
+                height={50} 
+                className="h-auto"
+                priority
+                style={{ objectFit: 'contain' }}
+                unoptimized
+              />
+            </Link>
+          </div>
+          
+          {/* Navigation */}
+          <nav className="flex items-center space-x-8">
+            <Link href="/" className="text-[#00E0FF] hover:text-white transition">
+              Home
+            </Link>
+            <Link href="/about" className="text-white hover:text-[#00E0FF] transition">
+              About
+            </Link>
+            
+            {/* Login Button */}
+            <Link href="/login" className="flex items-center">
+              <div className="bg-transparent rounded-full p-2">
+                <Image 
+                  src="/navbar/login.png" 
+                  alt="Login" 
+                  width={32} 
+                  height={32}
+                  style={{ objectFit: 'contain' }}
+                  unoptimized
+                />
+              </div>
+            </Link>
+            
+            {/* Search Button */}
+            <div className="relative">
+              <div className="bg-white rounded-full px-4 py-2 flex items-center">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="20" 
+                  height="20"
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  className="text-gray-700 mr-2"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span className="text-gray-700">Game</span>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+  );
+}
+
 // Create a separate client component for the search bar
 function SearchBar() {
   const [mounted, setMounted] = useState(false);
@@ -50,7 +123,10 @@ function SearchBar() {
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
+      {/* Add Navbar */}
+      <Navbar />
+      
+      {/* Hero Section - add padding top to account for navbar */}
       <section className="relative h-screen flex items-center justify-center">
         {/* Banner image as background */}
         <div className="absolute inset-0">
@@ -126,7 +202,7 @@ export default function Home() {
             {/* Rate feature */}
             <div className="bg-black/30 backdrop-blur-sm rounded-3xl overflow-hidden shadow-lg">
               <div className="p-8">
-                <h2 className="text-3xl font-bold text-white mb-4">Rate</h2>
+                <h2 className="text-3xl font-bold text-white mb-4">Give Ratings</h2>
                 <p className="text-lg text-white/90">
                   Give your personal rating based on your own experience.
                 </p>
@@ -141,56 +217,6 @@ export default function Home() {
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recent Games Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
-            Recently Added Games
-          </h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* These would ideally come from your database */}
-            <GameCard 
-              key="elden-ring-2"
-              title="Elden Ring 2"
-              imageUrl="/placeholder-game.jpg"
-              releaseDate="Coming 2025"
-              rating={4.9}
-            />
-            <GameCard 
-              key="star-wars-outlaws"
-              title="Star Wars: Outlaws"
-              imageUrl="/placeholder-game.jpg"
-              releaseDate="August 2024"
-              rating={4.5}
-            />
-            <GameCard 
-              key="dragon-age"
-              title="Dragon Age: The Veilguard"
-              imageUrl="/placeholder-game.jpg"
-              releaseDate="Fall 2024"
-              rating={4.7}
-            />
-            <GameCard 
-              key="metaphor"
-              title="Metaphor: ReFantazio"
-              imageUrl="/placeholder-game.jpg"
-              releaseDate="October 2024"
-              rating={4.6}
-            />
-          </div>
-          
-          <div className="mt-12 text-center">
-            <Link 
-              href="/games" 
-              className="px-8 py-3 bg-red-600 text-white font-medium rounded-full text-lg hover:bg-red-700 transition inline-block"
-            >
-              View All Games
-            </Link>
           </div>
         </div>
       </section>
