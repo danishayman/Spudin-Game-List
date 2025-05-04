@@ -82,28 +82,65 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-900 via-indigo-900 to-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
-            Why Join Our Community?
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <FeatureCard 
-              icon="🎮"
-              title="Track Upcoming Games" 
-              description="Stay updated on release dates for the most anticipated games across all platforms."
-            />
-            <FeatureCard 
-              icon="⭐"
-              title="Rate & Review" 
-              description="Share your opinions and help others discover quality games through honest ratings."
-            />
-            <FeatureCard 
-              icon="👥"
-              title="Community Discussions" 
-              description="Connect with fellow gamers to discuss gameplay, strategies, and experiences."
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* List of games feature */}
+            <div className="bg-black/30 backdrop-blur-sm rounded-3xl overflow-hidden shadow-lg">
+              <div className="p-8">
+                <h2 className="text-3xl font-bold text-white mb-4">List of games</h2>
+                <p className="text-lg text-white/90">
+                  Keep track of the games you've played or want to play.
+                </p>
+              </div>
+              <div className="relative aspect-video w-full">
+                <Image 
+                  src="/features/list-games.webp" 
+                  alt="Game list feature" 
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            </div>
+
+            {/* Write Reviews feature */}
+            <div className="bg-black/30 backdrop-blur-sm rounded-3xl overflow-hidden shadow-lg">
+              <div className="p-8">
+                <h2 className="text-3xl font-bold text-white mb-4">Write Reviews</h2>
+                <p className="text-lg text-white/90">
+                  Share your thoughts and opinions on games you've played.
+                </p>
+              </div>
+              <div className="relative aspect-video w-full">
+                <Image 
+                  src="/features/write-reviews.jpg" 
+                  alt="Review writing feature" 
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            </div>
+
+            {/* Rate feature */}
+            <div className="bg-black/30 backdrop-blur-sm rounded-3xl overflow-hidden shadow-lg">
+              <div className="p-8">
+                <h2 className="text-3xl font-bold text-white mb-4">Rate</h2>
+                <p className="text-lg text-white/90">
+                  Give your personal rating based on your own experience.
+                </p>
+              </div>
+              <div className="relative aspect-video w-full">
+                <Image 
+                  src="/features/rating.jpg" 
+                  alt="Rating feature" 
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
