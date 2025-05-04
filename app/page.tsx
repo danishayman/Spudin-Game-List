@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center">
+      <section className="relative h-[90vh] flex items-center justify-center">
         {/* Banner image as background */}
         <div className="absolute inset-0">
           <Image 
@@ -15,36 +15,37 @@ export default function Home() {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/75 to-black/90" />
         </div>
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Welcome to Spudin&apos;s Games List
+          <p className="text-2xl md:text-3xl font-medium text-white mb-2">Welcome to</p>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            SPUDIN'S GAME LIST
           </h1>
-          <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-8 drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
-            Your community-driven destination to track upcoming games, share ratings, and discover new favorites.
+          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto mb-8 drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
+            Get your game collection and personal rating in one place and share it with all world
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/login" 
-              className="px-8 py-3 bg-red-800 text-white font-medium rounded-full text-lg hover:bg-red-900 transition shadow-lg"
-            >
-              Sign In
-            </Link>
-            <Link 
-              href="/browse" 
-              className="px-8 py-3 bg-black/60 backdrop-blur-sm border-2 border-white text-white font-medium rounded-full text-lg hover:bg-black/80 transition shadow-lg"
-            >
-              Browse Games
-            </Link>
+          <div className="mt-10">
+            <div className="relative max-w-xl mx-auto">
+              <div className="absolute inset-y-0 left-3 flex items-center pl-3 pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-gray-400">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+              </div>
+              <input 
+                type="search" 
+                className="block w-full p-4 pl-12 text-base text-gray-900 border border-gray-300 rounded-full bg-white focus:ring-red-600 focus:border-red-600"
+                placeholder="Find a game" 
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-black">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
             Why Join Our Community?
           </h2>
           
@@ -69,9 +70,9 @@ export default function Home() {
       </section>
 
       {/* Recent Games Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
             Recently Added Games
           </h2>
           
@@ -106,7 +107,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link 
               href="/games" 
-              className="px-8 py-3 bg-red-800 text-white font-medium rounded-full text-lg hover:bg-red-900 transition inline-block"
+              className="px-8 py-3 bg-red-600 text-white font-medium rounded-full text-lg hover:bg-red-700 transition inline-block"
             >
               View All Games
             </Link>
@@ -114,8 +115,62 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Community Links Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Join Our Community</h2>
+          <p className="text-xl mb-10 text-gray-300">
+            Connect with us and other gamers across these platforms
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-8">
+            <a 
+              href="https://twitch.tv" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex flex-col items-center transition-transform hover:scale-110"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-[#9146FF] rounded-full mb-3">
+                <svg viewBox="0 0 24 24" className="w-8 h-8 fill-white">
+                  <path d="M11.64 5.93h1.43v4.28h-1.43m3.93-4.28H17v4.28h-1.43M7 2L3.43 5.57v12.86h4.28V22l3.58-3.57h2.85L20.57 12V2m-1.43 9.29l-2.85 2.85h-2.86l-2.5 2.5v-2.5H7.71V3.43h11.43z" />
+                </svg>
+              </div>
+              <span className="font-medium">Twitch</span>
+            </a>
+            
+            <a 
+              href="https://discord.gg" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex flex-col items-center transition-transform hover:scale-110"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-[#5865F2] rounded-full mb-3">
+                <svg viewBox="0 0 24 24" className="w-8 h-8 fill-white">
+                  <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.39-.444.888-.608 1.283a19.42 19.42 0 0 0-5.83 0C8.75 3.926 8.514 3.43 8.3 3.038a.077.077 0 0 0-.079-.036 20.318 20.318 0 0 0-4.885 1.49A.07.07 0 0 0 3.3 4.546C.572 8.756-.032 12.858.001 16.892c.001.055.026.106.07.138 1.986 1.457 3.913 2.343 5.805 2.928a.08.08 0 0 0 .086-.028c.462-.63.874-1.295 1.226-1.994a.075.075 0 0 0-.041-.105c-.632-.242-1.235-.519-1.807-.811a.08.08 0 0 1-.008-.13c.122-.091.244-.187.36-.281a.07.07 0 0 1 .073-.01c3.69 1.683 7.68 1.683 11.339 0a.07.07 0 0 1 .072.01 8.3 8.3 0 0 1 .36.28.08.08 0 0 1-.007.131c-.573.292-1.175.57-1.807.811a.075.075 0 0 0-.041.105c.36.698.772 1.363 1.225 1.994a.077.077 0 0 0 .087.028c1.899-.585 3.826-1.471 5.812-2.928a.077.077 0 0 0 .069-.138c.105-4.434-.699-8.5-2.957-12.345a.061.061 0 0 0-.036-.034zM8.02 14.184c-1.144 0-2.085-1.054-2.085-2.35 0-1.296.92-2.35 2.085-2.35 1.17 0 2.105 1.065 2.085 2.35 0 1.296-.92 2.35-2.085 2.35zm7.705 0c-1.144 0-2.085-1.054-2.085-2.35 0-1.296.92-2.35 2.085-2.35 1.17 0 2.105 1.065 2.085 2.35 0 1.296-.914 2.35-2.085 2.35z" />
+                </svg>
+              </div>
+              <span className="font-medium">Discord</span>
+            </a>
+            
+            <a 
+              href="https://github.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex flex-col items-center transition-transform hover:scale-110"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-[#24292e] rounded-full mb-3">
+                <svg viewBox="0 0 24 24" className="w-8 h-8 fill-white">
+                  <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                </svg>
+              </div>
+              <span className="font-medium">GitHub</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-red-900">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-red-700">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Join the Community?
@@ -125,7 +180,7 @@ export default function Home() {
           </p>
           <Link 
             href="/signup" 
-            className="px-8 py-3 bg-white text-red-900 font-medium rounded-full text-lg hover:bg-opacity-90 transition inline-block"
+            className="px-8 py-3 bg-white text-red-700 font-medium rounded-full text-lg hover:bg-opacity-90 transition inline-block"
           >
             Create Free Account
           </Link>
@@ -135,49 +190,34 @@ export default function Home() {
   );
 }
 
-// Feature card props interface
-interface FeatureCardProps {
-  icon: string;
-  title: string;
-  description: string;
-}
-
 // Feature card component
-function FeatureCard({ icon, title, description }: FeatureCardProps) {
+function FeatureCard({ icon, title, description }: { icon: string; title: string; description: string }) {
   return (
-    <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-sm hover:shadow-md transition text-center">
+    <div className="bg-gray-900 border border-gray-800 p-8 rounded-xl shadow-sm hover:shadow-md transition text-center">
       <div className="text-4xl mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-3 dark:text-white">{title}</h3>
-      <p className="text-gray-600 dark:text-gray-300">{description}</p>
+      <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
+      <p className="text-gray-300">{description}</p>
     </div>
   );
 }
 
-// Game card props interface
-interface GameCardProps {
-  title: string;
-  imageUrl: string;
-  releaseDate: string;
-  rating: number;
-}
-
 // Game card component
-function GameCard({ title, imageUrl, releaseDate, rating }: GameCardProps) {
+function GameCard({ title, imageUrl, releaseDate, rating }: { title: string; imageUrl: string; releaseDate: string; rating: number }) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm hover:shadow-md transition overflow-hidden">
-      <div className="aspect-video relative bg-gray-200 dark:bg-gray-800">
+    <div className="bg-black border border-gray-800 rounded-xl shadow-sm hover:shadow-md transition overflow-hidden">
+      <div className="aspect-video relative bg-gray-800">
         {/* Placeholder image - would use real images in production */}
-        <div className="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-500 text-lg">
+        <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-lg">
           Game Cover
         </div>
       </div>
       <div className="p-4">
-        <h3 className="font-bold dark:text-white">{title}</h3>
+        <h3 className="font-bold text-white">{title}</h3>
         <div className="flex justify-between items-center mt-2">
-          <span className="text-sm text-gray-600 dark:text-gray-300">{releaseDate}</span>
+          <span className="text-sm text-gray-400">{releaseDate}</span>
           <div className="flex items-center">
             <span className="text-red-500 mr-1">★</span>
-            <span className="text-sm font-medium dark:text-white">{rating}</span>
+            <span className="text-sm font-medium text-white">{rating}</span>
           </div>
         </div>
       </div>
