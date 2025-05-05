@@ -1,10 +1,12 @@
 'use client';
 
 import { auth } from '@/firebaseConfig';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithRedirect } from 'firebase/auth';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function LoginPage() {
     const [isLoading, setIsLoading] = useState(false);
@@ -16,66 +18,30 @@ export default function LoginPage() {
         const provider = new GoogleAuthProvider();
         
         try {
-            const result = await signInWithPopup(auth, provider);
-            // Successful login - you might want to redirect user or update UI
-            console.log(`Signed in as ${result.user.displayName}`);
-            // Redirect can be added here
+            await signInWithRedirect(auth, provider);
+            // The page will redirect to Google's auth page
+            // After authentication, the user will be redirected back to the app
         } catch (error) {
             console.error("Login error:", error);
             setError('Login failed. Please try again.');
-        } finally {
             setIsLoading(false);
         }
     };
 
-    const handleTwitchLogin = () => {
-        // Implement Twitch login functionality
-        alert('Twitch login to be implemented');
-    };
-
-    const handleEmailLogin = () => {
-        // Implement Email login functionality
-        alert('Email login to be implemented');
-    };
-
     return (
-        <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-black to-[#0a0a0a] text-white">
-            {/* Header/Logo */}
-            <div className="w-full max-w-7xl mx-auto px-4 py-6">
-                <div className="flex items-center">
-                    <Image 
-                        src="/navbar/logo.png" 
-                        alt="MYGAMELIST" 
-                        width={180} 
-                        height={50} 
-                        className="h-auto"
-                        priority
-                        style={{ objectFit: 'contain' }}
-                        unoptimized
-                    />
-                </div>
-            </div>
-
+        <div className="min-h-screen flex flex-col bg-gradient-to-b from-black to-gray-900 text-white">
+            <Navbar />
+            
             {/* Main content */}
-            <div className="flex-1 flex items-center justify-center w-full max-w-md px-4">
-                <div className="w-full bg-[#111] bg-opacity-60 rounded-2xl p-8 shadow-xl border border-gray-800">
-                    {/* Mascot and welcome message */}
+            <div className="flex-1 flex items-center justify-center w-full px-4 py-16">
+                <div className="w-full max-w-md bg-gray-900/60 rounded-2xl p-8 shadow-xl border border-gray-800">
+                    {/* Welcome message */}
                     <div className="flex flex-col items-center mb-8">
-                        <Image 
-                            src="/login/ChatHi.png" 
-                            alt="Ghost Mascot" 
-                            width={80} 
-                            height={80} 
-                            className="h-auto mb-4"
-                            priority
-                            style={{ objectFit: 'contain' }}
-                            unoptimized
-                        />
-                        <h2 className="text-2xl font-bold text-white mb-1">
-                            Welcome Chat-kun!
+                        <h2 className="text-2xl font-bold text-white mb-3">
+                            Welcome to Spudin's GameList
                         </h2>
-                        <p className="text-gray-400">
-                            or lurkers..
+                        <p className="text-gray-400 text-center">
+                            Track your game collection, rate titles, and connect with other gamers.
                         </p>
                     </div>
 
@@ -91,11 +57,11 @@ export default function LoginPage() {
                         <button
                             onClick={handleGoogleLogin}
                             disabled={isLoading}
-                            className="group relative flex w-full justify-center items-center px-4 py-3 bg-[#111] hover:bg-[#222] border border-gray-700 rounded-full text-white font-medium transition"
+                            className="group relative flex w-full justify-center items-center px-4 py-3 bg-white hover:bg-gray-100 rounded-full text-gray-800 font-medium transition"
                         >
                             {isLoading ? (
                                 <span className="flex items-center">
-                                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                     </svg>
@@ -113,36 +79,18 @@ export default function LoginPage() {
                                 </>
                             )}
                         </button>
-
-                        <button
-                            onClick={handleTwitchLogin}
-                            className="group relative flex w-full justify-center items-center px-4 py-3 bg-[#111] hover:bg-[#222] border border-gray-700 rounded-full text-white font-medium transition"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 mr-2 fill-[#9146FF]">
-                                <path d="M11.64 5.93h1.43v4.28h-1.43m3.93-4.28H17v4.28h-1.43M7 2L3.43 5.57v12.86h4.28V22l3.58-3.57h2.85L20.57 12V2m-1.43 9.29l-2.85 2.85h-2.86l-2.5 2.5v-2.5H7.71V3.43h11.43z"/>
-                            </svg>
-                            Continue with Twitch
-                        </button>
-
-                        <button
-                            onClick={handleEmailLogin}
-                            className="group relative flex w-full justify-center items-center px-4 py-3 bg-[#111] hover:bg-[#222] border border-gray-700 rounded-full text-white font-medium transition"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 mr-2 fill-white">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                            Continue with Email
-                        </button>
                     </div>
 
                     {/* Terms and privacy */}
                     <div className="mt-8 text-center">
                         <p className="text-xs text-gray-400">
-                            By signing up, you agree to our <Link href="/terms" className="text-[#CD1818] hover:text-red-400">Terms of Service</Link> and <Link href="/privacy" className="text-[#CD1818] hover:text-red-400">Privacy Policy</Link>. For information on how we utilize cookies, please refer to our <Link href="/cookies" className="text-[#CD1818] hover:text-red-400">Cookies Policy</Link>.
+                            By signing up, you agree to our <Link href="/terms" className="text-red-500 hover:text-red-400">Terms of Service</Link> and <Link href="/privacy" className="text-red-500 hover:text-red-400">Privacy Policy</Link>.
                         </p>
                     </div>
                 </div>
             </div>
+            
+            <Footer />
         </div>
     );
 }
