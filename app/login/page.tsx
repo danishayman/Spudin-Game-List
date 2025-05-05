@@ -61,23 +61,21 @@ export default function LoginPage() {
                 <div className="w-full bg-[#111] bg-opacity-60 rounded-2xl p-8 shadow-xl border border-gray-800">
                     {/* Mascot and welcome message */}
                     <div className="flex flex-col items-center mb-8">
-                        <div className="w-24 h-24 rounded-full bg-gradient-to-b from-[#222] to-[#333] flex items-center justify-center mb-4">
-                            <Image 
-                                src="/login/ChatHi.png" 
-                                alt="Ghost Mascot" 
-                                width={60} 
-                                height={60} 
-                                className="h-auto"
-                                priority
-                                style={{ objectFit: 'contain' }}
-                                unoptimized
-                            />
-                        </div>
+                        <Image 
+                            src="/login/ChatHi.png" 
+                            alt="Ghost Mascot" 
+                            width={80} 
+                            height={80} 
+                            className="h-auto mb-4"
+                            priority
+                            style={{ objectFit: 'contain' }}
+                            unoptimized
+                        />
                         <h2 className="text-2xl font-bold text-white mb-1">
                             Welcome Chat-kun!
                         </h2>
                         <p className="text-gray-400">
-                            or strangers..
+                            or lurkers..
                         </p>
                     </div>
 
@@ -105,10 +103,13 @@ export default function LoginPage() {
                                 </span>
                             ) : (
                                 <>
-                                    Continue with Google
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 ml-2 fill-white">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-7.5v3l3-3-3-3v3H7.5v-3h3z"/>
+                                    <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                        <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                                        <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
+                                        <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
+                                        <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
                                     </svg>
+                                    Continue with Google
                                 </>
                             )}
                         </button>
@@ -117,20 +118,20 @@ export default function LoginPage() {
                             onClick={handleTwitchLogin}
                             className="group relative flex w-full justify-center items-center px-4 py-3 bg-[#111] hover:bg-[#222] border border-gray-700 rounded-full text-white font-medium transition"
                         >
-                            Continue with Twitch
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 ml-2 fill-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 mr-2 fill-[#9146FF]">
                                 <path d="M11.64 5.93h1.43v4.28h-1.43m3.93-4.28H17v4.28h-1.43M7 2L3.43 5.57v12.86h4.28V22l3.58-3.57h2.85L20.57 12V2m-1.43 9.29l-2.85 2.85h-2.86l-2.5 2.5v-2.5H7.71V3.43h11.43z"/>
                             </svg>
+                            Continue with Twitch
                         </button>
 
                         <button
                             onClick={handleEmailLogin}
                             className="group relative flex w-full justify-center items-center px-4 py-3 bg-[#111] hover:bg-[#222] border border-gray-700 rounded-full text-white font-medium transition"
                         >
-                            Continue with Email
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 ml-2 fill-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 mr-2 fill-white">
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                             </svg>
+                            Continue with Email
                         </button>
                     </div>
 
